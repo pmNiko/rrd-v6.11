@@ -21,6 +21,7 @@ import { Badge } from "../components/Badge";
 import { SidebarFooter } from "../components/SidebarFooter";
 import { PackageBadges } from "../components/PackageBadges";
 import { Switch } from "../components/Switch";
+import backgroung_image from "/municipio.jpg";
 
 type Theme = "light" | "dark";
 
@@ -146,7 +147,7 @@ export const Playground: React.FC = () => {
         toggled={toggled}
         onBackdropClick={() => setToggled(false)}
         onBreakPoint={setBroken}
-        image="https://user-images.githubusercontent.com/25878302/144499035-2911184c-76d3-4611-86e7-bc4e8ff84ff5.jpg"
+        image={backgroung_image}
         rtl={rtl}
         breakPoint="md"
         backgroundColor={hexToRgba(
