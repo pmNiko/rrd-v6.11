@@ -28,14 +28,18 @@ type Theme = "light" | "dark";
 const themes = {
   light: {
     sidebar: {
-      backgroundColor: "#ffffff",
-      color: "#607489",
+      // backgroundColor: "#ffffff",
+      // color: "#607489",
+      backgroundColor: "#2ea3f2",
+      color: "#ffffff",
     },
     menu: {
-      menuContent: "#fbfcfd",
-      icon: "#0098e5",
+      // menuContent: "#fbfcfd",
+      // icon: "#0098e5",
+      menuContent: "#19669b",
+      icon: "#f1f1f1",
       hover: {
-        backgroundColor: "#c5e4ff",
+        backgroundColor: "#1699f1",
         color: "#44596e",
       },
       disabled: {
