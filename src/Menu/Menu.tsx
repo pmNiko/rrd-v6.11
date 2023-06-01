@@ -1,41 +1,35 @@
+import BookIcon from "@mui/icons-material/Book";
+import EditCalendarIcon from "@mui/icons-material/EditCalendar";
+import FavoriteIcon from "@mui/icons-material/Favorite";
 import React from "react";
 import {
   Menu,
   MenuItem,
   MenuItemStyles,
   Sidebar,
-  SubMenu,
   menuClasses,
 } from "react-pro-sidebar";
-import { SidebarHeader } from "../components/SidebarHeader";
-import { Typography } from "../components/Typography";
-import BarChartIcon from "@mui/icons-material/BarChart";
-import PublicIcon from "@mui/icons-material/Public";
-import DarkModeIcon from "@mui/icons-material/DarkMode";
-import DiamondIcon from "@mui/icons-material/Diamond";
-import ShoppingCartIcon from "@mui/icons-material/ShoppingCart";
-import EditCalendarIcon from "@mui/icons-material/EditCalendar";
-import BookIcon from "@mui/icons-material/Book";
-import FavoriteIcon from "@mui/icons-material/Favorite";
+import { hexToRgba } from ".";
+import { SidebarMenu, SidebarSection } from "../components";
 import { Badge } from "../components/Badge";
+import CardExample from "../components/CardExample";
+import FixedContainer from "../components/FixedContainer";
 import { SidebarFooter } from "../components/SidebarFooter";
-import { PackageBadges } from "../components/PackageBadges";
-import { Switch } from "../components/Switch";
+import { SidebarHeader, StyledLogo } from "../components/SidebarHeader";
 import backgroung_image from "/municipio.jpg";
+import { Typography } from "@mui/material";
+import { SidebarConfig } from "../components/SidebarConfig";
+import { Footer } from "../components/Footer";
 
-type Theme = "light" | "dark";
+export type Theme = "light" | "dark";
 
 const themes = {
   light: {
     sidebar: {
-      // backgroundColor: "#ffffff",
-      // color: "#607489",
       backgroundColor: "#2ea3f2",
       color: "#ffffff",
     },
     menu: {
-      // menuContent: "#fbfcfd",
-      // icon: "#0098e5",
       menuContent: "#19669b",
       icon: "#f1f1f1",
       hover: {
@@ -64,15 +58,6 @@ const themes = {
       },
     },
   },
-};
-
-// hex to rgba converter
-const hexToRgba = (hex: string, alpha: number) => {
-  const r = parseInt(hex.slice(1, 3), 16);
-  const g = parseInt(hex.slice(3, 5), 16);
-  const b = parseInt(hex.slice(5, 7), 16);
-
-  return `rgba(${r}, ${g}, ${b}, ${alpha})`;
 };
 
 export const Playground: React.FC = () => {
@@ -110,7 +95,7 @@ export const Playground: React.FC = () => {
       },
     },
     SubMenuExpandIcon: {
-      color: "#b6b7b9",
+      color: "#f1f1f1",
     },
     subMenuContent: ({ level }) => ({
       backgroundColor:
@@ -139,182 +124,143 @@ export const Playground: React.FC = () => {
   };
 
   return (
-    <div
-      style={{
-        display: "flex",
-        height: "100vh",
-        direction: rtl ? "rtl" : "ltr",
-      }}
-    >
-      <Sidebar
-        collapsed={collapsed}
-        toggled={toggled}
-        onBackdropClick={() => setToggled(false)}
-        onBreakPoint={setBroken}
-        image={backgroung_image}
-        rtl={rtl}
-        breakPoint="md"
-        backgroundColor={hexToRgba(
-          themes[theme].sidebar.backgroundColor,
-          hasImage ? 0.9 : 1
-        )}
-        rootStyles={{
-          color: themes[theme].sidebar.color,
+    <>
+      <div
+        style={{
+          display: "flex",
+          height: "100vh",
+          direction: rtl ? "rtl" : "ltr",
         }}
       >
-        <div
-          style={{ display: "flex", flexDirection: "column", height: "100%" }}
+        <Sidebar
+          collapsed={collapsed}
+          toggled={toggled}
+          onBackdropClick={() => setToggled(false)}
+          onBreakPoint={setBroken}
+          image={backgroung_image}
+          rtl={rtl}
+          breakPoint="md"
+          backgroundColor={hexToRgba(
+            themes[theme].sidebar.backgroundColor,
+            hasImage ? 0.9 : 1
+          )}
+          rootStyles={{
+            color: themes[theme].sidebar.color,
+          }}
         >
-          <SidebarHeader
-            rtl={rtl}
-            style={{ marginBottom: "24px", marginTop: "16px" }}
-          />
-          <div style={{ flex: 1, marginBottom: "32px" }}>
-            <div style={{ padding: "0 24px", marginBottom: "8px" }}>
-              <Typography
-                variant="body2"
-                fontWeight={600}
-                style={{ opacity: collapsed ? 0 : 0.7, letterSpacing: "0.5px" }}
-              >
-                General
-              </Typography>
-            </div>
-            <Menu menuItemStyles={menuItemStyles}>
-              <SubMenu
-                label="Charts"
-                icon={<BarChartIcon />}
-                suffix={
-                  <Badge variant="danger" shape="circle">
-                    6
-                  </Badge>
-                }
-              >
-                <MenuItem> Pie charts</MenuItem>
-                <MenuItem> Line charts</MenuItem>
-                <MenuItem> Bar charts</MenuItem>
-              </SubMenu>
-              <SubMenu label="Maps" icon={<PublicIcon />}>
-                <MenuItem> Google maps</MenuItem>
-                <MenuItem> Open street maps</MenuItem>
-              </SubMenu>
-              <SubMenu label="Theme" icon={<DarkModeIcon />}>
-                <MenuItem> Dark</MenuItem>
-                <MenuItem> Light</MenuItem>
-              </SubMenu>
-              <SubMenu label="Components" icon={<DiamondIcon />}>
-                <MenuItem> Grid</MenuItem>
-                <MenuItem> Layout</MenuItem>
-                <SubMenu label="Forms">
-                  <MenuItem> Input</MenuItem>
-                  <MenuItem> Select</MenuItem>
-                  <SubMenu label="More">
-                    <MenuItem> CheckBox</MenuItem>
-                    <MenuItem> Radio</MenuItem>
-                  </SubMenu>
-                </SubMenu>
-              </SubMenu>
-              <SubMenu label="E-commerce" icon={<ShoppingCartIcon />}>
-                <MenuItem> Product</MenuItem>
-                <MenuItem> Orders</MenuItem>
-                <MenuItem> Credit card</MenuItem>
-              </SubMenu>
-            </Menu>
+          <div
+            style={{ display: "flex", flexDirection: "column", height: "100%" }}
+          >
+            <SidebarHeader
+              rtl={rtl}
+              style={{ marginBottom: "24px", marginTop: "16px" }}
+              title="Oficina Virtual"
+            />
 
-            <div
-              style={{
-                padding: "0 24px",
-                marginBottom: "8px",
-                marginTop: "32px",
-              }}
-            >
-              <Typography
-                variant="body2"
-                fontWeight={600}
-                style={{ opacity: collapsed ? 0 : 0.7, letterSpacing: "0.5px" }}
-              >
-                Extra
-              </Typography>
+            <div style={{ flex: 1, marginBottom: "32px" }}>
+              <SidebarSection collapsed={collapsed} label="General" />
+
+              <SidebarMenu menuItemStyles={menuItemStyles} />
+
+              <SidebarSection
+                collapsed={collapsed}
+                label="Extras"
+                paddingTop="2rem"
+              />
+
+              <Menu menuItemStyles={menuItemStyles}>
+                <MenuItem
+                  icon={<EditCalendarIcon />}
+                  suffix={<Badge variant="success">New</Badge>}
+                >
+                  Calendar
+                </MenuItem>
+                <MenuItem icon={<BookIcon />}>Documentation</MenuItem>
+                <MenuItem disabled icon={<FavoriteIcon />}>
+                  Examples
+                </MenuItem>
+              </Menu>
             </div>
 
-            <Menu menuItemStyles={menuItemStyles}>
-              <MenuItem
-                icon={<EditCalendarIcon />}
-                suffix={<Badge variant="success">New</Badge>}
-              >
-                Calendar
-              </MenuItem>
-              <MenuItem icon={<BookIcon />}>Documentation</MenuItem>
-              <MenuItem disabled icon={<FavoriteIcon />}>
-                Examples
-              </MenuItem>
-            </Menu>
+            <SidebarFooter collapsed={collapsed} />
           </div>
-          <SidebarFooter collapsed={collapsed} />
-        </div>
-      </Sidebar>
+        </Sidebar>
 
-      <main>
-        <div style={{ padding: "16px 24px", color: "#44596e" }}>
-          <div style={{ marginBottom: "16px" }}>
-            {broken && (
-              <button
-                className="sb-button"
-                onClick={() => setToggled(!toggled)}
+        <main
+          style={{
+            backgroundColor: "white",
+            width: "100%",
+          }}
+        >
+          <div
+            style={{
+              backgroundColor: "#2ea3f2",
+              padding: "1em",
+              color: "white",
+              display: "flex",
+              justifyContent: "space-between",
+              alignItems: "center",
+            }}
+          >
+            {broken ? (
+              <StyledLogo onClick={() => setToggled(!toggled)}>M</StyledLogo>
+            ) : (
+              <Typography
+                variant="h6"
+                component="div"
+                sx={{ flexGrow: 1 }}
+                // align="right"
+                padding={1}
+                marginRight={1}
+                fontSize={"0.9em"}
               >
-                Toggle
-              </button>
+                Municipalidad de San Martín de los Andes
+              </Typography>
             )}
-          </div>
-          <div style={{ marginBottom: "48px" }}>
-            <Typography variant="h4" fontWeight={600}>
-              React Pro Sidebar
-            </Typography>
-            <Typography variant="body2">
-              React Pro Sidebar provides a set of components for creating high
-              level and customizable side navigation
-            </Typography>
-            <PackageBadges />
-          </div>
-
-          <div style={{ padding: "0 8px" }}>
-            <div style={{ marginBottom: 16 }}>
-              <Switch
-                id="collapse"
-                checked={collapsed}
-                onChange={() => setCollapsed(!collapsed)}
-                label="Collapse"
-              />
-            </div>
-
-            <div style={{ marginBottom: 16 }}>
-              <Switch
-                id="rtl"
-                checked={rtl}
-                onChange={handleRTLChange}
-                label="RTL"
-              />
-            </div>
-
-            <div style={{ marginBottom: 16 }}>
-              <Switch
-                id="theme"
-                checked={theme === "dark"}
-                onChange={handleThemeChange}
-                label="Dark theme"
-              />
-            </div>
-
-            <div style={{ marginBottom: 16 }}>
-              <Switch
-                id="image"
-                checked={hasImage}
-                onChange={handleImageChange}
-                label="Image"
+            <div>
+              <img
+                src="https://app.sma.gob.ar/inicio/static/media/sma.a0813f434e165adba2c0.png"
+                alt="logo"
+                width={"130px"}
               />
             </div>
           </div>
-        </div>
-      </main>
-    </div>
+
+          <FixedContainer>
+            <>
+              <CardExample />
+              <br />
+              <CardExample />
+              <br />
+              <CardExample />
+              <br />
+              <CardExample />
+              <br />
+              <SidebarConfig
+                collapsed={collapsed}
+                toggleCollapsed={() => setCollapsed(!collapsed)}
+                rtl={rtl}
+                toggleRtl={handleRTLChange}
+                hasImage={hasImage}
+                handleImageChange={handleImageChange}
+                theme={theme}
+                handleThemeChange={handleThemeChange}
+              />
+              <br />
+              <CardExample />
+              <br />
+              <CardExample />
+              <br />
+              <CardExample />
+              <br />
+              <CardExample />
+              <br />
+            </>
+          </FixedContainer>
+        </main>
+      </div>
+
+      <Footer version="1" />
+    </>
   );
 };

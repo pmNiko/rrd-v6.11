@@ -1,5 +1,6 @@
 import styled from "@emotion/styled";
 import GitHubIcon from "@mui/icons-material/GitHub";
+import NewspaperIcon from "@mui/icons-material/Newspaper";
 import { Typography } from "./Typography";
 import packageJson from "../../package.json";
 
@@ -20,7 +21,7 @@ const StyledButton = styled.a`
 `;
 
 const StyledSidebarFooter = styled.div`
-  width: 50%;
+  width: 70%;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -64,14 +65,14 @@ export const SidebarFooter: React.FC<SidebarFooterProps> = ({
     >
       {collapsed ? (
         <StyledCollapsedSidebarFooter href={codeUrl} target="_blank">
-          <GitHubIcon height={20} />
+          <NewspaperIcon height={20} />
         </StyledCollapsedSidebarFooter>
       ) : (
         <StyledSidebarFooter {...rest}>
           <div style={{ marginBottom: "12px" }}>
-            <GitHubIcon height={20} />
+            <NewspaperIcon height={20} />
           </div>
-          <Typography fontWeight={600}>Pro Sidebar</Typography>
+          <Typography fontWeight={600}>Banner</Typography>
           <Typography
             variant="caption"
             style={{ letterSpacing: 1, opacity: 0.7 }}
@@ -81,7 +82,7 @@ export const SidebarFooter: React.FC<SidebarFooterProps> = ({
           <div style={{ marginTop: "16px" }}>
             <StyledButton href={codeUrl} target="_blank">
               <Typography variant="caption" color="#607489" fontWeight={600}>
-                View code
+                Acceder
               </Typography>
             </StyledButton>
           </div>

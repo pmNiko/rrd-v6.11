@@ -4,6 +4,7 @@ import { Typography } from "./Typography";
 
 interface SidebarHeaderProps extends React.HTMLAttributes<HTMLDivElement> {
   children?: React.ReactNode;
+  title: string;
   rtl: boolean;
 }
 
@@ -20,7 +21,7 @@ const StyledSidebarHeader = styled.div`
   }
 `;
 
-const StyledLogo = styled.div<{ rtl?: boolean }>`
+export const StyledLogo = styled.div<{ rtl?: boolean }>`
   width: 35px;
   min-width: 35px;
   height: 35px;
@@ -48,6 +49,7 @@ const StyledLogo = styled.div<{ rtl?: boolean }>`
 
 export const SidebarHeader: React.FC<SidebarHeaderProps> = ({
   children,
+  title,
   rtl,
   ...rest
 }) => {
@@ -55,8 +57,13 @@ export const SidebarHeader: React.FC<SidebarHeaderProps> = ({
     <StyledSidebarHeader {...rest}>
       <div style={{ display: "flex", alignItems: "center" }}>
         <StyledLogo rtl={rtl}>M</StyledLogo>
-        <Typography variant="subtitle1" fontWeight={700} color="#f1f1f1">
-          Mi Municipio
+        <Typography
+          variant="subtitle1"
+          fontSize={"1em"}
+          fontWeight={700}
+          color="#f1f1f1"
+        >
+          {title}
         </Typography>
       </div>
     </StyledSidebarHeader>
