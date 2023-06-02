@@ -1,6 +1,7 @@
 import BookIcon from "@mui/icons-material/Book";
 import EditCalendarIcon from "@mui/icons-material/EditCalendar";
 import FavoriteIcon from "@mui/icons-material/Favorite";
+import { Box, Typography } from "@mui/material";
 import React from "react";
 import {
   Menu,
@@ -11,15 +12,17 @@ import {
 } from "react-pro-sidebar";
 import { hexToRgba } from ".";
 import { SidebarMenu, SidebarSection } from "../components";
+import AccountSettings from "../components/Account";
 import { Badge } from "../components/Badge";
 import CardExample from "../components/CardExample";
 import FixedContainer from "../components/FixedContainer";
+import { Footer } from "../components/Footer";
+import { SidebarConfig } from "../components/SidebarConfig";
 import { SidebarFooter } from "../components/SidebarFooter";
 import { SidebarHeader, StyledLogo } from "../components/SidebarHeader";
 import backgroung_image from "/municipio.jpg";
-import { Typography } from "@mui/material";
-import { SidebarConfig } from "../components/SidebarConfig";
-import { Footer } from "../components/Footer";
+
+import logo from "../assets/logo.png";
 
 export type Theme = "light" | "dark";
 
@@ -193,10 +196,12 @@ export const Playground: React.FC = () => {
             width: "100%",
           }}
         >
-          <div
+          <Box
+            px={2}
+            py={0.8}
             style={{
               backgroundColor: "#2ea3f2",
-              padding: "1em",
+              // padding: "1em",
               color: "white",
               display: "flex",
               justifyContent: "space-between",
@@ -204,28 +209,36 @@ export const Playground: React.FC = () => {
             }}
           >
             {broken ? (
-              <StyledLogo onClick={() => setToggled(!toggled)}>M</StyledLogo>
-            ) : (
-              <Typography
-                variant="h6"
-                component="div"
-                sx={{ flexGrow: 1 }}
-                // align="right"
-                padding={1}
-                marginRight={1}
-                fontSize={"0.9em"}
+              <StyledLogo
+                onClick={() => setToggled(!toggled)}
+                style={{
+                  boxShadow: "3px 3px 4px 0px rgba(0,0,0, 0.5)",
+                  height: "1.5em",
+                  width: "1.5em",
+                }}
               >
-                Municipalidad de San Martín de los Andes
-              </Typography>
+                <span style={{ marginTop: "-0.2em" }}>
+                  <img src={logo} alt="logo" width={"30px"} />
+                </span>
+              </StyledLogo>
+            ) : (
+              <div>
+                <Typography
+                  variant="h6"
+                  component="div"
+                  sx={{ flexGrow: 1 }}
+                  // align="right"
+                  padding={1}
+                  marginRight={1}
+                  fontSize={"0.9em"}
+                >
+                  Municipalidad de San Martín de los Andes
+                </Typography>
+              </div>
             )}
-            <div>
-              <img
-                src="https://app.sma.gob.ar/inicio/static/media/sma.a0813f434e165adba2c0.png"
-                alt="logo"
-                width={"130px"}
-              />
-            </div>
-          </div>
+
+            <AccountSettings />
+          </Box>
 
           <FixedContainer>
             <>

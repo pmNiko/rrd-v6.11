@@ -2,6 +2,8 @@ import styled from "@emotion/styled";
 import React from "react";
 import { Typography } from "./Typography";
 
+import logo from "../assets/logo.png";
+
 interface SidebarHeaderProps extends React.HTMLAttributes<HTMLDivElement> {
   children?: React.ReactNode;
   title: string;
@@ -55,8 +57,26 @@ export const SidebarHeader: React.FC<SidebarHeaderProps> = ({
 }) => {
   return (
     <StyledSidebarHeader {...rest}>
-      <div style={{ display: "flex", alignItems: "center" }}>
-        <StyledLogo rtl={rtl}>M</StyledLogo>
+      <div
+        style={{
+          display: "flex",
+          alignItems: "center",
+          height: "5em",
+        }}
+      >
+        <StyledLogo
+          rtl={rtl}
+          style={{
+            boxShadow: "3px 3px 4px 0px rgba(0,0,0, 0.3)",
+            height: "1.5em",
+            width: "1.5em",
+          }}
+        >
+          <span style={{ marginTop: "-0.2em" }}>
+            <img src={logo} alt="logo" width={"30px"} />
+          </span>
+        </StyledLogo>
+
         <Typography
           variant="subtitle1"
           fontSize={"1em"}
