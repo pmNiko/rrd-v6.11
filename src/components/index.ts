@@ -1,3 +1,7 @@
+export { SidebarContainer } from "./SidebarContainer";
+
+export { Badge } from "./Badge";
+
 export { Footer } from "./Footer";
 
 export { SidebarConfig } from "./SidebarConfig";

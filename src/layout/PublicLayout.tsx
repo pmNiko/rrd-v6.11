@@ -1,7 +1,10 @@
 import styled from "@emotion/styled";
-import SideBarMenu from "../SideBarMenu";
-
-import { FixedContainer, Footer, NavBar } from "../components";
+import {
+  FixedContainer,
+  Footer,
+  NavBar,
+  SidebarContainer,
+} from "../components";
 
 const LayoutContainer = styled.div<{ rtl?: boolean }>`
   display: flex;
@@ -23,7 +26,7 @@ const PublicLayout = ({ children, version }: Props) => {
     <>
       <LayoutContainer rtl={true}>
         {/* <NavBar broken={broken} openMenu={() => setToggled(!toggled)} /> */}
-        <SideBarMenu />
+        <SidebarContainer />
 
         <BodyContainer>
           <NavBar broken={false} openMenu={() => console.log()} />

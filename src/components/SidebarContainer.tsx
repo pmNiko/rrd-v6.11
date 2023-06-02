@@ -1,7 +1,7 @@
+import React from "react";
 import BookIcon from "@mui/icons-material/Book";
 import EditCalendarIcon from "@mui/icons-material/EditCalendar";
 import FavoriteIcon from "@mui/icons-material/Favorite";
-import React from "react";
 import {
   Menu,
   MenuItem,
@@ -10,10 +10,14 @@ import {
   menuClasses,
 } from "react-pro-sidebar";
 import { hexToRgba } from "../utils";
-import { SidebarMenu, SidebarSection } from "../components";
-import { Badge } from "../components/Badge";
-import { SidebarFooter } from "../components/SidebarFooter";
-import { SidebarHeader } from "../components/SidebarHeader";
+import {
+  SidebarMenu,
+  SidebarSection,
+  SidebarFooter,
+  SidebarHeader,
+  Badge,
+} from "../components";
+
 import backgroung_image from "/municipio.jpg";
 
 export type Theme = "light" | "dark";
@@ -55,7 +59,7 @@ const themes = {
   },
 };
 
-const SideBarMenu: React.FC = () => {
+export const SidebarContainer: React.FC = () => {
   const [collapsed, setCollapsed] = React.useState(false);
   const [toggled, setToggled] = React.useState(false);
   const [broken, setBroken] = React.useState(false);
@@ -173,5 +177,3 @@ const SideBarMenu: React.FC = () => {
     </Sidebar>
   );
 };
-
-export default SideBarMenu;
