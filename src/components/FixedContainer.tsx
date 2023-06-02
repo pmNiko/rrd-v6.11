@@ -17,7 +17,7 @@ export default function FixedContainer({
             marginTop: "1em",
             padding: "1em",
             // bgcolor: "#cfe8fc",
-            height: "88vh",
+            height: "86vh",
             display: "flex",
             flexDirection: "column",
             justifyContent: "center",

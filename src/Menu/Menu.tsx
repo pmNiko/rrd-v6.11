@@ -147,13 +147,14 @@ export const Playground: React.FC = () => {
           rootStyles={{
             color: themes[theme].sidebar.color,
           }}
+          style={{ borderRightWidth: "0px" }}
         >
           <div
             style={{ display: "flex", flexDirection: "column", height: "100%" }}
           >
             <SidebarHeader
               rtl={rtl}
-              style={{ marginBottom: "24px", marginTop: "16px" }}
+              style={{ marginBottom: "24px", marginTop: "0.5em" }}
               title="Oficina Virtual"
             />
 
