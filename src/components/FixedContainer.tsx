@@ -3,11 +3,7 @@ import Container from "@mui/material/Container";
 import CssBaseline from "@mui/material/CssBaseline";
 import * as React from "react";
 
-export default function FixedContainer({
-  children,
-}: {
-  children: JSX.Element;
-}) {
+export const FixedContainer = ({ children }: { children: JSX.Element }) => {
   return (
     <React.Fragment>
       <CssBaseline />
@@ -45,4 +41,4 @@ export default function FixedContainer({
       </Container>
     </React.Fragment>
   );
-}
+};

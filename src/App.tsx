@@ -1,30 +1,39 @@
-import { Box, Button, Container, Typography } from "@mui/material";
-import { Playground } from "./Menu/Menu";
+import { CardExample } from "./components";
+import PublicLayout from "./layout/PublicLayout";
 
 function App() {
   return (
-    <Playground />
-    // <Container>
-    //   <h1>Main</h1>
-
-    //   <Box
-    //     border={2}
-    //     p={5}
-    //     borderColor={"peru"}
-    //     bgcolor={"#111"}
-    //     color={"white"}
-    //   >
-    //     <Typography variant="caption">
-    //       Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ea
-    //       reiciendis perspiciatis delectus quibusdam magnam soluta, rerum quos
-    //       eaque commodi dolorum itaque a provident fugit nostrum perferendis
-    //       nemo consequuntur! Ullam, eos!
-    //     </Typography>^
-    //     <Button variant="contained" sx={{ mt: 3 }}>
-    //       Mi boton
-    //     </Button>
-    //   </Box>
-    // </Container>
+    <PublicLayout version="1.0.0">
+      <>
+        <CardExample />
+        <br />
+        <CardExample />
+        <br />
+        <CardExample />
+        <br />
+        <CardExample />
+        <br />
+        {/* <SidebarConfig
+              collapsed={collapsed}
+              toggleCollapsed={() => setCollapsed(!collapsed)}
+              rtl={rtl}
+              toggleRtl={handleRTLChange}
+              hasImage={hasImage}
+              handleImageChange={handleImageChange}
+              theme={theme}
+              handleThemeChange={handleThemeChange}
+            /> */}
+        <br />
+        <CardExample />
+        <br />
+        <CardExample />
+        <br />
+        <CardExample />
+        <br />
+        <CardExample />
+        <br />
+      </>
+    </PublicLayout>
   );
 }
 

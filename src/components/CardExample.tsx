@@ -30,7 +30,7 @@ const ExpandMore = styled((props: ExpandMoreProps) => {
   }),
 }));
 
-export default function CardExample() {
+export const CardExample = () => {
   const [expanded, setExpanded] = React.useState(false);
 
   const handleExpandClick = () => {
@@ -115,4 +115,4 @@ export default function CardExample() {
       </Collapse>
     </Card>
   );
-}
+};
