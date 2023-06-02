@@ -9,6 +9,10 @@ const LayoutContainer = styled.div<{ rtl?: boolean }>`
   ${({ rtl }) => (rtl ? `rtl` : `ltr`)}
 `;
 
+const BodyContainer = styled.div`
+  width: 100%;
+`;
+
 interface Props {
   children: JSX.Element;
   version: string;
@@ -20,17 +24,12 @@ const PublicLayout = ({ children, version }: Props) => {
       <LayoutContainer rtl={true}>
         {/* <NavBar broken={broken} openMenu={() => setToggled(!toggled)} /> */}
         <SideBarMenu />
-        {/* <NavBar broken={broken} openMenu={() => setToggled(!toggled)} /> */}
 
-        <main
-          style={{
-            width: "100%",
-          }}
-        >
+        <BodyContainer>
           <NavBar broken={false} openMenu={() => console.log()} />
 
           <FixedContainer>{children}</FixedContainer>
-        </main>
+        </BodyContainer>
       </LayoutContainer>
 
       <Footer version={version} />

@@ -15,7 +15,7 @@ const StyledSidebarHeader = styled.div`
   min-height: 64px;
   display: flex;
   align-items: center;
-  padding: 0 20px;
+  padding: 1.5em;
 
   > div {
     width: 100%;
@@ -62,6 +62,7 @@ export const SidebarHeader: React.FC<SidebarHeaderProps> = ({
           display: "flex",
           alignItems: "center",
           height: "5em",
+          marginTop: "-0.3em",
         }}
       >
         <StyledLogo
