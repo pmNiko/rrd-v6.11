@@ -1,39 +1,37 @@
-import { PackageBadges, Switch, Typography } from ".";
+import { useContext } from "react";
+import { Switch } from "./Switch";
+import { LayoutContext } from "../context";
 
-interface Props {
-  collapsed: boolean;
-  toggleCollapsed: () => void;
-  rtl: boolean;
-  toggleRtl: (e: React.ChangeEvent<HTMLInputElement>) => void;
-  theme: "light" | "dark";
-  handleThemeChange: (e: React.ChangeEvent<HTMLInputElement>) => void;
-  hasImage: boolean;
-  handleImageChange: (e: React.ChangeEvent<HTMLInputElement>) => void;
-}
+export const SidebarConfig = () => {
+  const {
+    collapsed,
+    rtl,
+    theme,
+    hasImage,
+    switchHasImage,
+    switchTheme,
+    switchRtl,
+    switchCollapsed,
+  } = useContext(LayoutContext);
 
-export const SidebarConfig = ({
-  collapsed,
-  toggleCollapsed,
-  rtl,
-  toggleRtl,
-  theme,
-  handleThemeChange,
-  hasImage,
-  handleImageChange,
-}: Props) => {
+  // handle on theme change event
+  const handleThemeChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    switchTheme(e.target.checked ? "dark" : "light");
+  };
+
   return (
     <div style={{ padding: "0 8px", display: "flex", flexDirection: "column" }}>
       <div style={{ marginBottom: 16 }}>
         <Switch
           id="collapse"
           checked={collapsed}
-          onChange={toggleCollapsed}
+          onChange={switchCollapsed}
           label="Collapse"
         />
       </div>
 
       <div style={{ marginBottom: 16 }}>
-        <Switch id="rtl" checked={rtl} onChange={toggleRtl} label="RTL" />
+        <Switch id="rtl" checked={rtl} onChange={switchRtl} label="RTL" />
       </div>
 
       <div style={{ marginBottom: 16 }}>
@@ -49,7 +47,7 @@ export const SidebarConfig = ({
         <Switch
           id="image"
           checked={hasImage}
-          onChange={handleImageChange}
+          onChange={switchHasImage}
           label="Image"
         />
       </div>

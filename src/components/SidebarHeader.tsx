@@ -1,13 +1,13 @@
 import styled from "@emotion/styled";
-import React from "react";
+import React, { useContext } from "react";
 import { Typography } from "./Typography";
 
 import logo from "../assets/logo.png";
+import { LayoutContext } from "../context";
 
 interface SidebarHeaderProps extends React.HTMLAttributes<HTMLDivElement> {
   children?: React.ReactNode;
   title: string;
-  rtl: boolean;
 }
 
 const StyledSidebarHeader = styled.div`
@@ -15,7 +15,7 @@ const StyledSidebarHeader = styled.div`
   min-height: 64px;
   display: flex;
   align-items: center;
-  padding: 1.5em;
+  padding: 1em;
 
   > div {
     width: 100%;
@@ -52,9 +52,9 @@ export const StyledLogo = styled.div<{ rtl?: boolean }>`
 export const SidebarHeader: React.FC<SidebarHeaderProps> = ({
   children,
   title,
-  rtl,
   ...rest
 }) => {
+  const { rtl, switchToggled } = useContext(LayoutContext);
   return (
     <StyledSidebarHeader {...rest}>
       <div
@@ -73,7 +73,7 @@ export const SidebarHeader: React.FC<SidebarHeaderProps> = ({
             width: "1.5em",
           }}
         >
-          <span style={{ marginTop: "-0.2em" }}>
+          <span style={{ marginTop: "-0.2em" }} onClick={switchToggled}>
             <img src={logo} alt="logo" width={"30px"} />
           </span>
         </StyledLogo>

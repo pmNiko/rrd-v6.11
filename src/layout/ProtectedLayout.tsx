@@ -5,18 +5,17 @@ import {
   FixedContainer,
   Footer,
   NavBar,
-  SidebarConfig,
   SidebarContainer,
 } from "../components";
 import { LayoutProps } from "../interfaces";
 
-const LayoutContainer = styled.div<{ rtl?: boolean }>`
+const StyledLayoutContainer = styled.div<{ rtl?: boolean }>`
   display: flex;
   height: 100vh;
-  ${({ rtl }) => (rtl ? `rtl` : `ltr`)}
+  ${({ rtl }) => (rtl ? `direction: rtl` : `direction: ltr`)}
 `;
 
-const BodyContainer = styled.div`
+const StyledBodyContainer = styled.div`
   width: 100%;
 `;
 
@@ -25,20 +24,17 @@ const ProtectedLayout = ({ children, version }: LayoutProps) => {
 
   return (
     <>
-      <LayoutContainer rtl={rtl}>
+      <StyledLayoutContainer rtl={rtl}>
         <SidebarContainer />
 
-        <BodyContainer>
+        <StyledBodyContainer>
           <NavBar />
 
           <FixedContainer>
-            <>
-              <SidebarConfig />
-              {children}
-            </>
+            <>{children}</>
           </FixedContainer>
-        </BodyContainer>
-      </LayoutContainer>
+        </StyledBodyContainer>
+      </StyledLayoutContainer>
 
       <Footer version={version} />
     </>
