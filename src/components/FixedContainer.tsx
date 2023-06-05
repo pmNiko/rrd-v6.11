@@ -1,18 +1,16 @@
 import Box from "@mui/material/Box";
 import Container from "@mui/material/Container";
 import CssBaseline from "@mui/material/CssBaseline";
-import * as React from "react";
 
 export const FixedContainer = ({ children }: { children: JSX.Element }) => {
   return (
-    <React.Fragment>
+    <>
       <CssBaseline />
       <Container fixed>
         <Box
           sx={{
             marginTop: "1em",
             padding: "1em",
-            // bgcolor: "#cfe8fc",
             height: "86vh",
             display: "flex",
             flexDirection: "column",
@@ -39,6 +37,6 @@ export const FixedContainer = ({ children }: { children: JSX.Element }) => {
           </div>
         </Box>
       </Container>
-    </React.Fragment>
+    </>
   );
 };

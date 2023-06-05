@@ -1,11 +1,10 @@
-import { CardExample, SidebarConfig } from "./components";
+import { CardExample } from "./components";
 import { ProviderLayoutContainer } from "./layout";
 
 function App() {
   return (
     <ProviderLayoutContainer version="1.0.0">
       <>
-        <SidebarConfig />
         <br />
         <CardExample />
         <br />

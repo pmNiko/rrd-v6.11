@@ -3,10 +3,11 @@ import GitHubIcon from "@mui/icons-material/GitHub";
 import NewspaperIcon from "@mui/icons-material/Newspaper";
 import { Typography } from "./Typography";
 import packageJson from "../../package.json";
+import { useContext } from "react";
+import { LayoutContext } from "../context";
 
 interface SidebarFooterProps extends React.HTMLAttributes<HTMLDivElement> {
   children?: React.ReactNode;
-  collapsed?: boolean;
 }
 
 const StyledButton = styled.a`
@@ -51,9 +52,10 @@ const codeUrl = "https://app.sma.gob.ar/inicio/";
 
 export const SidebarFooter: React.FC<SidebarFooterProps> = ({
   children,
-  collapsed,
   ...rest
 }) => {
+  const { collapsed } = useContext(LayoutContext);
+
   return (
     <div
       style={{

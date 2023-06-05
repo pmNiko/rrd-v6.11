@@ -1,3 +1,4 @@
+import { Theme } from "../interfaces";
 import { LayoutState } from "./LayoutContext";
 
 type LayoutActions =
@@ -6,7 +7,7 @@ type LayoutActions =
   | { type: "broken" }
   | { type: "rtl" }
   | { type: "hasImage" }
-  | { type: "theme"; payload: "light" | "dark" };
+  | { type: "theme"; payload: Theme };
 
 export const layoutReducer = (
   state: LayoutState,

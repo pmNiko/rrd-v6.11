@@ -1,3 +1,4 @@
+import { useContext } from "react";
 import MailOutlineIcon from "@mui/icons-material/MailOutline";
 import {
   Box,
@@ -6,7 +7,6 @@ import {
   IconButton,
   Typography,
 } from "@mui/material";
-import { useContext } from "react";
 import { LayoutContext } from "../context";
 
 export interface FooterProps {

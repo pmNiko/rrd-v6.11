@@ -1,12 +1,15 @@
+import { useContext } from "react";
 import { Typography } from "@mui/material";
+import { LayoutContext } from "../context";
 
 interface Props {
-  collapsed: boolean;
   label: string;
   [x: string]: any;
 }
 
-export const SidebarSection = ({ collapsed, label, ...props }: Props) => {
+export const SidebarSection = ({ label, ...props }: Props) => {
+  const { collapsed } = useContext(LayoutContext);
+
   return (
     <div style={{ padding: "0 24px", marginBottom: "8px", ...props }}>
       <Typography

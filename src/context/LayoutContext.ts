@@ -1,11 +1,5 @@
-// const [collapsed, setCollapsed] = React.useState(false);
-// const [toggled, setToggled] = React.useState(false);
-// const [broken, setBroken] = React.useState(false);
-// const [rtl, setRtl] = React.useState(false);
-// const [hasImage, setHasImage] = React.useState(false);
-// const [theme, setTheme] = React.useState<Theme>("light");
-
 import { createContext } from "react";
+import { Theme } from "../interfaces";
 
 export interface LayoutState {
   collapsed: boolean;
@@ -13,7 +7,7 @@ export interface LayoutState {
   broken: boolean;
   rtl: boolean;
   hasImage: boolean;
-  theme: "light" | "dark";
+  theme: Theme;
 }
 
 interface LayoutContextProps extends LayoutState {
@@ -23,7 +17,7 @@ interface LayoutContextProps extends LayoutState {
   switchBroken: () => void;
   switchRtl: () => void;
   switchHasImage: () => void;
-  switchTheme: (theme: "light" | "dark") => void;
+  switchTheme: (theme: Theme) => void;
 }
 
 export const LayoutContext = createContext({} as LayoutContextProps);

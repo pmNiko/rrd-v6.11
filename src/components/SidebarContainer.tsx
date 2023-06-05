@@ -2,14 +2,15 @@ import React, { useContext } from "react";
 import BookIcon from "@mui/icons-material/Book";
 import EditCalendarIcon from "@mui/icons-material/EditCalendar";
 import FavoriteIcon from "@mui/icons-material/Favorite";
+
 import {
   Menu,
   MenuItem,
   MenuItemStyles,
   Sidebar,
+  SubMenu,
   menuClasses,
 } from "react-pro-sidebar";
-import { hexToRgba } from "../utils";
 import {
   SidebarMenu,
   SidebarSection,
@@ -18,11 +19,11 @@ import {
   Badge,
 } from "../components";
 
-import backgroung_image from "/municipio.jpg";
+import { hexToRgba } from "../utils";
 import { themes } from "../Theme";
 import { LayoutContext } from "../context";
-
-export type Theme = "light" | "dark";
+import backgroung_image from "/municipio.jpg";
+import { SidebarMenuPreferences } from "./SidebarMenuPreferences";
 
 export const SidebarContainer: React.FC = () => {
   const {
@@ -100,31 +101,21 @@ export const SidebarContainer: React.FC = () => {
         />
 
         <div style={{ flex: 1, marginBottom: "32px" }}>
-          <SidebarSection collapsed={collapsed} label="General" />
+          <SidebarSection label="General" />
 
           <SidebarMenu menuItemStyles={menuItemStyles} />
 
-          <SidebarSection
-            collapsed={collapsed}
-            label="Extras"
-            paddingTop="2rem"
-          />
+          <SidebarSection label="Extras" paddingTop="2rem" />
 
           <Menu menuItemStyles={menuItemStyles}>
-            <MenuItem
-              icon={<EditCalendarIcon />}
-              suffix={<Badge variant="success">New</Badge>}
-            >
-              Calendar
-            </MenuItem>
-            <MenuItem icon={<BookIcon />}>Documentation</MenuItem>
+            <SidebarMenuPreferences />
             <MenuItem disabled icon={<FavoriteIcon />}>
               Examples
             </MenuItem>
           </Menu>
         </div>
 
-        <SidebarFooter collapsed={collapsed} />
+        <SidebarFooter />
       </div>
     </Sidebar>
   );

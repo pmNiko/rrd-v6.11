@@ -23,6 +23,19 @@ export const NavBar = () => {
       }}
     >
       {broken ? (
+        <StyledLogo
+          onClick={switchToggled}
+          style={{
+            boxShadow: "3px 3px 4px 0px rgba(0,0,0, 0.5)",
+            height: "1.5em",
+            width: "1.5em",
+          }}
+        >
+          <span style={{ marginTop: "-0.2em" }}>
+            <img src={logo} alt="logo" width={"30px"} />
+          </span>
+        </StyledLogo>
+      ) : (
         <div>
           <Typography
             variant="h6"
@@ -36,19 +49,6 @@ export const NavBar = () => {
             Municipalidad de San Martín de los Andes
           </Typography>
         </div>
-      ) : (
-        <StyledLogo
-          onClick={switchToggled}
-          style={{
-            boxShadow: "3px 3px 4px 0px rgba(0,0,0, 0.5)",
-            height: "1.5em",
-            width: "1.5em",
-          }}
-        >
-          <span style={{ marginTop: "-0.2em" }}>
-            <img src={logo} alt="logo" width={"30px"} />
-          </span>
-        </StyledLogo>
       )}
 
       <AccountSettings />
