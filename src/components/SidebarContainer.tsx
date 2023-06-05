@@ -1,29 +1,25 @@
-import React, { useContext } from "react";
-import BookIcon from "@mui/icons-material/Book";
-import EditCalendarIcon from "@mui/icons-material/EditCalendar";
 import FavoriteIcon from "@mui/icons-material/Favorite";
+import React, { useContext, useEffect, useState } from "react";
 
 import {
   Menu,
   MenuItem,
   MenuItemStyles,
   Sidebar,
-  SubMenu,
   menuClasses,
 } from "react-pro-sidebar";
 import {
-  SidebarMenu,
-  SidebarSection,
   SidebarFooter,
   SidebarHeader,
-  Badge,
+  SidebarMenu,
+  SidebarSection,
 } from "../components";
 
-import { hexToRgba } from "../utils";
 import { themes } from "../Theme";
 import { LayoutContext } from "../context";
-import backgroung_image from "/municipio.jpg";
+import { hexToRgba } from "../utils";
 import { SidebarMenuPreferences } from "./SidebarMenuPreferences";
+import backgroung_image from "/municipio.jpg";
 
 export const SidebarContainer: React.FC = () => {
   const {
@@ -32,9 +28,11 @@ export const SidebarContainer: React.FC = () => {
     hasImage,
     rtl,
     theme,
+    broken,
     switchToggled,
     switchBroken,
   } = useContext(LayoutContext);
+  const [handlerBroken, setHandlerBroken] = useState(false);
 
   const menuItemStyles: MenuItemStyles = {
     root: {
@@ -76,12 +74,16 @@ export const SidebarContainer: React.FC = () => {
     }),
   };
 
+  useEffect(() => {
+    switchBroken();
+  }, [handlerBroken]);
+
   return (
     <Sidebar
       collapsed={collapsed}
       toggled={toggled}
       onBackdropClick={switchToggled}
-      onBreakPoint={switchBroken}
+      onBreakPoint={setHandlerBroken}
       image={backgroung_image}
       rtl={rtl}
       breakPoint="md"

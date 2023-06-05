@@ -41,7 +41,6 @@ export const NavBar = () => {
             variant="h6"
             component="div"
             sx={{ flexGrow: 1 }}
-            // align="right"
             padding={1}
             marginRight={1}
             fontSize={"0.9em"}
